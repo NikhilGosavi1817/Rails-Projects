@@ -1,0 +1,16 @@
+%br
+.container
+  .row.justify-content-center
+    .col-lg-6
+      .card.text-center
+        .card-header
+          %h4 Note
+        .card-body
+        = form_with model: @tender, url: change_tender_path(@tender), method: :post do |f|
+          .container
+            .field.form-group
+              = f.text_area :note, autofocus: true, class:"form-control",placeholder: "Note"
+            %br/
+            .actions
+              = f.submit "Create", class:'btn btn-dark'
+        %br

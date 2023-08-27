@@ -1,0 +1,30 @@
+%br
+
+%center.h1.center Books
+%br
+
+%table.table.m-5
+  %thead.table
+    %tr
+      %th
+        = sortable("id", params[:filter])
+      %th
+        = sortable("account_number", params[:filter])
+      %th
+        = sortable("name", params[:filter])
+      %th
+        = sortable("amount", params[:filter])
+      %th
+        = sortable("created_at", params[:filter])
+    - @trans.each do |trans|
+      %tr
+        %td
+          = trans.id
+        %td
+          = trans.benficary.account_number
+        %td
+          = trans.benficary.name
+        %td
+          = trans.amount
+        %td
+          = trans.created_at.to_date

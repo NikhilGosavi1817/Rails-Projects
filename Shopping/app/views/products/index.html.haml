@@ -1,0 +1,38 @@
+%br
+
+%center.h1.center Products
+%br
+
+%table.table.m-5
+  %thead.table
+    %tr
+      %th
+        = sortable("id", params[:filter])
+      %th
+        = sortable("name", params[:filter])
+      %th
+        = sortable("available_quantity", "Quantity", params[:filter])
+      %th
+        = sortable("price", params[:filter])
+    - @products.each do |product|
+      %tr
+        %td
+          = product.id
+        %td
+          = product.name
+        %td
+          - if product.carts.exists?(product_id: product.id)
+            = product.available_quantity
+          - else
+            = product.quantity
+        %td
+          = product.price
+        %td
+          - if (!product.carts.exists?(product_id: product.id) && product.quantity>0) || (product.carts.exists?(product_id: product.id) && product.available_quantity>0)
+            = form_with model: product, url: add_cart_path(product), method: :post do |f|
+              .field
+                = f.number_field :add_to_cart, autofocus: true
+              .action
+                = f.submit "Add to cart"
+          - elsif product.quantity<=0 || product.available_quantity<=0
+            Product not available

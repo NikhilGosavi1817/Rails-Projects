@@ -1,0 +1,22 @@
+%br
+
+%center.h1.center Books
+%br
+
+%table.table.m-5
+  %thead.table
+    %tr
+      %th
+        = sortable("id", params[:filter])
+      %th
+        = sortable("amount", params[:filter])
+      %th
+        = sortable("created_at", params[:filter])
+    - @history.each do |ben|
+      %tr
+        %td
+          = ben.id
+        %td
+          = ben.amount
+        %td
+          = ben.created_at

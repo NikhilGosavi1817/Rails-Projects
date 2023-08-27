@@ -1,0 +1,19 @@
+%br
+.container
+  .row.justify-content-center
+    .col-lg-6
+      .card.text-center
+        .card-header
+          %h4 Create Student
+        .card-body
+        = form_for @benficary, url: benficaries_path, method: :post do |f|
+          .container
+            .field.form-group
+              = f.text_field :account_number, autofocus: true, class:"form-control",placeholder: "Account Number"
+            %br/
+            .field.form-group
+              = f.text_field :name, autofocus: true, class:"form-control",placeholder: "Name"
+            %br/
+            .actions
+              = f.submit "Create", class:'btn btn-dark'
+        %br

@@ -1,0 +1,2 @@
+module BenficariesHelper
+end

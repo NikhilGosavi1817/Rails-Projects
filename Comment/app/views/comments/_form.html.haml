@@ -1,0 +1,8 @@
+= form_with(model: [@book, @book.comments.build]) do |f|
+    .field
+        = f.hidden_field :parent_id
+        = f.label :content
+        %br/
+        = f.text_area :content, autofocus: true
+    .action
+        = f.submit "Create"

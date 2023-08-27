@@ -1,0 +1,19 @@
+%br
+.container
+  .row.justify-content-center
+    .col-lg-6
+      .card.text-center
+        .card-header
+          %h4 Create Student
+        .card-body
+        = form_for @project, url: projects_path, method: :post do |f|
+          .container
+            .field.form-group
+              = f.text_field :name, autofocus: true, class:"form-control",placeholder: "Project Name"
+            %br/
+            .field.form-group
+              = f.text_area :description, autofocus: true, class:"form-control",placeholder: "Description"
+            %br/
+            .actions
+              = f.submit "Create", class:'btn btn-dark'
+        %br

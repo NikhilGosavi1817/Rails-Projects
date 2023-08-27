@@ -1,0 +1,19 @@
+%br
+.container
+  .row.justify-content-center
+    .col-lg-6
+      .card.text-center
+        .card-header
+          %h4 Create Tender
+        .card-body
+        = form_for @tender, url: tend_tender_path, method: :post do |f|
+          .container
+            .field.form-group
+              = f.text_field :company_name, autofocus: true, class:"form-control",placeholder: "Company Name"
+            %br/
+            .field.form-group
+              = f.number_field :cost, autofocus: true, class:"form-control",placeholder: "Cost"
+            %br/
+            .actions
+              = f.submit "Create", class:'btn btn-dark'
+        %br

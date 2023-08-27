@@ -1,0 +1,16 @@
+%br
+.container
+  .row.justify-content-center
+    .col-lg-6
+      .card.text-center
+        .card-header
+          %h4 Create Transaction
+        .card-body
+        = form_with model: @trans, url: transaction_transfer_path(@benficary)  do |f|
+          .container
+            .field.form-group
+              = f.number_field :amount, autofocus: true, class:"form-control",placeholder: "Amount"
+            %br/
+            .actions
+            = f.submit "Create", class:'btn btn-dark'
+            %br

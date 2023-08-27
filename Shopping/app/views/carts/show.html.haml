@@ -1,0 +1,31 @@
+%h2 Cart details
+- @total_cost=0
+%table.table.m-5
+  %thead.table
+    %tr
+      %th
+        = sortable("name", params[:filter])
+      %th
+        = sortable("items", params[:filter])
+      %th
+        = sortable("cost", params[:filter])
+    - @carts.each do |cart|
+      - if cart.items > 0
+        %tr
+          %td
+            = cart.name
+          %td
+            = cart.items
+          %td
+            = cart.cost
+            - @total_cost+=cart.cost
+          %td
+            = form_with model: cart, url: remove_cart_path(cart), method: :patch do |f|
+              .field
+                = f.number_field :remove_item, autofocus: true
+              .action
+                = f.submit "Remove Product"
+
+= @total_cost
+
+= button_to "Checkout", checkout_cart_path(@carts), method: :patch

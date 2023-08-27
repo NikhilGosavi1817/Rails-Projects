@@ -1,0 +1,31 @@
+%br
+
+%center.h1.center Books
+%br
+
+%table.table.m-5
+  %thead.table
+    %tr
+      %th
+        = sortable("name", params[:filter])
+      %th
+        = sortable("status", params[:filter])
+      %th
+        = sortable("number_of_tenders", params[:filter])
+      %th
+        = sortable("created_at", params[:filter])
+    - @projects.each do |project|
+      %tr
+        %td
+          = link_to project.name, project_path(project)
+        %td
+          = project.status
+        %td
+          = project.number_of_tenders
+        %td
+          = project.created_at.to_date
+        %td
+          - if project.status == 'pending'
+            = link_to "Tender", perform_tender_path(project)
+          - else
+            Tender Selected

@@ -1,0 +1,39 @@
+%h2 Project details
+%h4 Project Title: #{@project.name}
+%h4 Project Status: #{@project.status}
+%h4 Project Description: #{@project.description}
+
+%br
+
+%center.h1.center Tenders
+%br
+
+%table.table.m-5
+  %thead.table
+    %tr
+      %th
+        = sortable("company_name", params[:filter])
+      %th
+        = sortable("cost", params[:filter])
+      %th
+        = sortable("status", params[:filter])
+      %th
+        = sortable("created_at", params[:filter])
+      %th
+    - @tenders.each do |tender|
+      %tr
+        %td
+          = tender.company_name
+        %td
+          = tender.cost
+        %td
+          = tender.status
+        %td
+          = tender.created_at.to_date
+        %td
+          - if tender.status == "open"
+            = link_to "Reject", reject_tender_path(tender)
+          - elsif tender.status == "rejected"
+            = tender.note
+- if @project.status == 'pending'
+  = button_to "Accept", accept_tender_path(@project), method: :post

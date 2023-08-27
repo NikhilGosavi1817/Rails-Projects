@@ -1,0 +1,34 @@
+%br
+
+%center.h1.center Books
+%br
+
+%table.table.m-5
+  %thead.table
+    %tr
+      %th
+        = sortable("id", params[:filter])
+      %th
+        = sortable("account_number", params[:filter])
+      %th
+        = sortable("name", params[:filter])
+      %th
+        = sortable("balance", params[:filter])
+      %th
+        = sortable("created_at", params[:filter])
+    - @benficaries.each do |benficary|
+      %tr
+        %td
+          = benficary.id
+        %td
+          = benficary.account_number
+        %td
+          = benficary.name
+        %td
+          = benficary.balance
+        %td
+          = benficary.created_at.to_date
+        %td
+          = link_to "Transaction", perform_transfer_path(benficary)
+        %td
+          = link_to "Histroy",history_transfer_path(benficary)
