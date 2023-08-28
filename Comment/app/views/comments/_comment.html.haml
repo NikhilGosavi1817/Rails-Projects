@@ -1,12 +1,15 @@
-- if current_user.avatar.attached?
-    = image_tag current_user.avatar, size: 50, class: "rounded-circle mr-1", resize: "24x24!"
-- else
-    %img.rounded-circle.shadow-4{:alt => "Avatar", :src => "https://www.svgrepo.com/download/5125/avatar.svg", :style => "width: 80px"}/
-= comment.user.first_name
-= comment.content
-= render 'comments/form', locals: {book: comment.book, parent: comment}
+.row
+    .col-auto
+        - if current_user.avatar.attached?
+            = image_tag current_user.avatar, size: 50, class: "rounded-circle mr-1", resize: "24x24!"
+        - else
+            %img.rounded-circle.shadow-4{:alt => "Avatar", :src => "https://www.svgrepo.com/download/5125/avatar.svg", :style => "width: 80px"}/
+    .col-auto
+        = comment.user.first_name
+        %p= comment.content
 %a.comment-form-display{:href => "#"} reply
 .comment-form
+    = render partial: 'comments/form', locals: {book: comment.book, parent: comment}
 %br
 .sub-comment
     = render comment.comments.reverse
