@@ -1,0 +1,20 @@
+%br
+
+%center.h1.center Books
+%br
+
+%table.table.m-5
+  %thead.table
+    %tr
+      %th
+        = sortable("name", params[:filter])
+      %th
+        = sortable("specalist", params[:filter])
+    - @doctors.each do |doctor|
+      %tr
+        %td
+          = link_to doctor.name, doctor_path(doctor)
+        %td
+          = doctor.specalist
+        %td
+          = link_to "Appointment", perform_appointment_path(doctor)

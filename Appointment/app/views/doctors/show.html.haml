@@ -1,0 +1,31 @@
+%h2 Project details
+%h4 Project Title: #{@doctor.name}
+%h4 Project Status: #{@doctor.specalist}
+
+%br
+
+%center.h1.center Tenders
+%br
+
+%table.table.m-5
+  %thead.table
+    %tr
+      %th
+        = sortable("patient name", params[:filter])
+      %th
+        = sortable("date", params[:filter])
+      %th
+        = sortable("from", params[:filter])
+      %th
+        = sortable("to", params[:filter])
+    - @appointments.each do |appointment|
+      %tr
+        %td
+          = appointment.user.email
+        %td
+          = appointment.date
+        %td
+          = appointment.from
+        %td
+          = appointment.to
+        

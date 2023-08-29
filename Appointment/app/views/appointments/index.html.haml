@@ -1,0 +1,33 @@
+%center.h1.center Tenders
+%br
+
+%table.table.m-5
+  %thead.table
+    %tr
+      %th
+        = sortable("doctor name", params[:filter])
+      %th
+        = sortable("doctor type", params[:filter])
+      %th
+        = sortable("patient", params[:filter])
+      %th
+        = sortable("date", params[:filter])
+      %th
+        = sortable("from", params[:filter])
+      %th
+        = sortable("to", params[:filter])
+    - @appointments.each do |appointment|
+      %tr
+        %td
+          = appointment.doctor.name
+        %td
+          = appointment.doctor.specalist
+        %td
+          = appointment.user.email
+        %td
+          = appointment.date
+        %td
+          = appointment.from
+        %td
+          = appointment.to
+        

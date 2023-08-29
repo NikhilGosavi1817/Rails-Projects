@@ -1,0 +1,125 @@
+@import 'bootstrap';
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #212529;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav button {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.3s;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+
+/* Increase header font size and spacing */
+
+.h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+
+/* Style the table */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6;
+    table-layout: fixed;
+    /* Set a fixed table layout */
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+    /* Prevent content overflow */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    text-overflow: ellipsis;
+    /* Add ellipsis for overflow */
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f3f5;
+}
+
+
+/* Style the delete button */
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+
+/* Pagination style */
+
+.pagination {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+/* Additional styles for links */
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

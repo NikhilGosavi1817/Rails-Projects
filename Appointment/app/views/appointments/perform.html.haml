@@ -1,0 +1,22 @@
+%br
+.container
+  .row.justify-content-center
+    .col-lg-6
+      .card.text-center
+        .card-header
+          %h4 Create Tender
+        .card-body
+        = form_for @appoint, url: doct_appointment_path, method: :post do |f|
+          .container
+            .field.form-group
+              = f.date_field :date, autofocus: true, class:"form-control",placeholder: "Date"
+            %br/
+            .field.form-group
+              = f.number_field :from, autofocus: true, class:"form-control",placeholder: "From in hour"
+            %br/
+            .field.form-group
+              = f.number_field :to, autofocus: true, class:"form-control",placeholder: "To in hour"
+            %br/
+            .actions
+              = f.submit "Create", class:'btn btn-dark'
+        %br

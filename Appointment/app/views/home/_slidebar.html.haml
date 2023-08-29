@@ -1,0 +1,11 @@
+#mySidenav.sidenav
+  %a.closebtn{:href => "javascript:void(0)", :onclick => "closeNav()"} ×
+  %a{:href => "#"} About
+  %a{:href => "#"} Services
+  %a{:href => "#"} Clients
+  %a{:href => "#"} Contact
+
+%span.opennav{:onclick => "openNav()", :style => "font-size:30px;cursor:pointer;color:#FFFFFF"} ☰ Menu
+:javascript
+  function openNav() {document.getElementById("mySidenav").style.width = "250px";}
+  function closeNav() {document.getElementById("mySidenav").style.width = "0";}
